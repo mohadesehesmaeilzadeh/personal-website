@@ -1,5 +1,7 @@
 import "./App.css";
 
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
@@ -9,17 +11,19 @@ import Contact from "./pages/Contact";
 
 function App() {
   return (
-    <div>
+    <BrowserRouter>
       <Navbar />
 
-      <Home />
+      <Routes>
+        <Route path="/" element={<Home />} />
 
-      <About />
+        <Route path="/about" element={<About />} />
 
-      <Contact />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
 
       <Footer />
-    </div>
+    </BrowserRouter>
   );
 }
 
