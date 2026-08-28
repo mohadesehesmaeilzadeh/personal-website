@@ -32,3 +32,80 @@ footer {
 
   text-align: center;
 }
+
+.home {
+  min-height: 70vh;
+}
+
+.hero {
+  min-height: 60vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+
+  padding: 60px 20px;
+}
+
+.hero-subtitle {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.hero h1 {
+  font-size: 48px;
+  margin: 0;
+}
+
+.hero h2 {
+  font-size: 24px;
+  margin-top: 10px;
+}
+
+.hero-description {
+  max-width: 600px;
+  line-height: 1.8;
+  margin: 20px 0;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.primary-button,
+.secondary-button {
+  padding: 12px 20px;
+
+  text-decoration: none;
+
+  border-radius: 6px;
+}
+
+.primary-button {
+  background-color: #222;
+  color: white;
+}
+
+.secondary-button {
+  border: 1px solid #222;
+  color: #222;
+}
+
+.home-about {
+  max-width: 800px;
+
+  margin: 0 auto;
+
+  padding: 50px 20px;
+
+  text-align: center;
+}
+
+.home-about p {
+  line-height: 1.8;
+}
