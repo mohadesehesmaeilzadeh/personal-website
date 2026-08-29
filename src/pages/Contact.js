@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Alert, Button, Card, Container, Form } from "react-bootstrap";
 
 function Contact() {
   const [name, setName] = useState("");
@@ -15,59 +16,73 @@ function Contact() {
   if (submitted) {
     return (
       <main className="contact">
-        <div className="thank-you-message">
-          <h1>Thank you, {name}! ❤️</h1>
+        <Container>
+          <Alert variant="success" className="thank-you-message">
+            <Alert.Heading>Thank you, {name}!</Alert.Heading>
 
-          <p>Your message has been received.</p>
-        </div>
+            <p>Your message has been received.</p>
+          </Alert>
+        </Container>
       </main>
     );
   }
 
   return (
     <main className="contact">
-      <section className="contact-section">
-        <h1>Contact Me</h1>
+      <Container>
+        <section className="contact-section">
+          <Card className="content-card">
+            <Card.Body>
+              <p className="eyebrow">Contact</p>
+              <h1>Contact Me</h1>
 
-        <p>
-          Feel free to send me a message using the form below.
-        </p>
+              <p>
+                Feel free to send me a message using the form below.
+              </p>
 
-        <form className="contact-form" onSubmit={handleSubmit}>
-          <label htmlFor="name">Name</label>
+              <Form className="contact-form" onSubmit={handleSubmit}>
+                <Form.Group className="mb-3" controlId="name">
+                  <Form.Label>Name</Form.Label>
 
-          <input
-            id="name"
-            type="text"
-            value={name}
-            onChange={(event) => setName(event.target.value)}
-            required
-          />
+                  <Form.Control
+                    type="text"
+                    value={name}
+                    onChange={(event) => setName(event.target.value)}
+                    required
+                  />
+                </Form.Group>
 
-          <label htmlFor="email">Email</label>
+                <Form.Group className="mb-3" controlId="email">
+                  <Form.Label>Email</Form.Label>
 
-          <input
-            id="email"
-            type="email"
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-            required
-          />
+                  <Form.Control
+                    type="email"
+                    value={email}
+                    onChange={(event) => setEmail(event.target.value)}
+                    required
+                  />
+                </Form.Group>
 
-          <label htmlFor="message">Message</label>
+                <Form.Group className="mb-4" controlId="message">
+                  <Form.Label>Message</Form.Label>
 
-          <textarea
-            id="message"
-            value={message}
-            onChange={(event) => setMessage(event.target.value)}
-            required
-          />
+                  <Form.Control
+                    as="textarea"
+                    rows={5}
+                    value={message}
+                    onChange={(event) => setMessage(event.target.value)}
+                    required
+                  />
+                </Form.Group>
 
-          <button type="submit">
-            Send Message
-          </button>
-        </form>
-      </section>
+                <Button type="submit" variant="primary">
+                  Send Message
+                </Button>
+              </Form>
+            </Card.Body>
+          </Card>
+        </section>
+      </Container>
     </main>
   );
 }

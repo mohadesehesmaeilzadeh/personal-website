@@ -1,3 +1,5 @@
+import { Badge, Card, Col, Container, Row } from "react-bootstrap";
+
 function About() {
   const skills = [
     "HTML",
@@ -10,35 +12,48 @@ function About() {
 
   return (
     <main className="about">
-      <section className="about-intro">
-        <h1>About Me</h1>
+      <Container>
+        <section className="page-header text-center">
+          <p className="eyebrow">About</p>
+          <h1>About Me</h1>
 
-        <p>
-          I'm a Frontend Developer who enjoys building clean,
-          responsive, and user-friendly web applications.
-        </p>
-      </section>
+          <p>
+            I'm a Frontend Developer who enjoys building clean,
+            responsive, and user-friendly web applications.
+          </p>
+        </section>
 
-      <section className="about-info">
-        <h2>Who Am I?</h2>
+        <Row className="g-4">
+          <Col lg={5}>
+            <Card className="content-card h-100">
+              <Card.Body>
+                <h2>Who Am I?</h2>
 
-        <p>
-          I enjoy working with React and JavaScript and learning
-          more about modern frontend development.
-        </p>
-      </section>
+                <p>
+                  I enjoy working with React and JavaScript and learning
+                  more about modern frontend development.
+                </p>
+              </Card.Body>
+            </Card>
+          </Col>
 
-      <section className="skills-section">
-        <h2>My Skills</h2>
+          <Col lg={7}>
+            <Card className="content-card h-100">
+              <Card.Body>
+                <h2>My Skills</h2>
 
-        <div className="skills-list">
-          {skills.map((skill, index) => (
-            <div className="skill-card" key={index}>
-              {skill}
-            </div>
-          ))}
-        </div>
-      </section>
+                <div className="skills-list">
+                  {skills.map((skill) => (
+                    <Badge bg="light" text="dark" className="skill-badge" key={skill}>
+                      {skill}
+                    </Badge>
+                  ))}
+                </div>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
+      </Container>
     </main>
   );
 }
