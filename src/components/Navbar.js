@@ -1,18 +1,38 @@
-import { Link } from "react-router-dom";
+import { Container, Nav, Navbar as BootstrapNavbar } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
 
 function Navbar() {
   return (
-    <nav>
-      <h2>Personal Website</h2>
+    <BootstrapNavbar
+      expand="lg"
+      className="site-navbar"
+      sticky="top"
+      variant="dark"
+    >
+      <Container>
+        <BootstrapNavbar.Brand as={NavLink} to="/">
+          Personal Website
+        </BootstrapNavbar.Brand>
 
-      <div>
-        <Link to="/">Home</Link>
+        <BootstrapNavbar.Toggle aria-controls="main-navigation" />
 
-        <Link to="/about">About</Link>
+        <BootstrapNavbar.Collapse id="main-navigation">
+          <Nav className="ms-auto">
+            <Nav.Link as={NavLink} to="/" end>
+              Home
+            </Nav.Link>
 
-        <Link to="/contact">Contact</Link>
-      </div>
-    </nav>
+            <Nav.Link as={NavLink} to="/about">
+              About
+            </Nav.Link>
+
+            <Nav.Link as={NavLink} to="/contact">
+              Contact
+            </Nav.Link>
+          </Nav>
+        </BootstrapNavbar.Collapse>
+      </Container>
+    </BootstrapNavbar>
   );
 }
 
